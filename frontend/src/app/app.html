@@ -1,0 +1,52 @@
+<main class="page">
+  <section class="panel">
+    <h1>Crowe Content Cleaner</h1>
+    <p class="subtitle">Upload export template files, run cleaning rules, and download a production-ready output workbook.</p>
+
+    <div class="grid">
+      <label>
+        API Base URL
+        <input type="text" [(ngModel)]="apiBaseUrl" placeholder="http://localhost:8000" />
+      </label>
+
+      <label>
+        Risk Taxonomy ID
+        <input type="number" [(ngModel)]="riskTaxonomyId" />
+      </label>
+
+      <label>
+        Control Taxonomy ID
+        <input type="number" [(ngModel)]="controlTaxonomyId" />
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="runStage2" />
+        Run Stage 2 for Risk file
+      </label>
+    </div>
+
+    <div class="uploads">
+      <label>
+        Export File (.xlsx)
+        <input type="file" accept=".xlsx" (change)="onExportSelected($event)" />
+      </label>
+
+      <label>
+        Risk Details File (.xlsx)
+        <input type="file" accept=".xlsx" (change)="onRiskDetailsSelected($event)" [disabled]="!runStage2" />
+      </label>
+    </div>
+
+    <button type="button" (click)="runCleaner()" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Running...' : 'Run Cleaner & Download' }}
+    </button>
+
+    <p class="success" *ngIf="statusMessage">{{ statusMessage }}</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <div class="meta" *ngIf="metadata">
+      <strong>Run metadata:</strong>
+      <pre>{{ metadata }}</pre>
+    </div>
+  </section>
+</main>

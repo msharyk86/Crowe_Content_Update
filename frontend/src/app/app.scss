@@ -1,0 +1,122 @@
+:host {
+  --bg-a: #f7f3e8;
+  --bg-b: #d7e8f0;
+  --ink: #1d1f24;
+  --muted: #5c616d;
+  --brand: #0b6b8f;
+  --brand-dark: #094f6a;
+  --border: #c4ccd4;
+  --ok: #166534;
+  --error: #991b1b;
+
+  color: var(--ink);
+  font-family: "Source Sans 3", "Segoe UI", Tahoma, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, var(--bg-b) 0%, var(--bg-a) 65%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel {
+  width: min(880px, 100%);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(23, 39, 51, 0.14);
+  padding: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-family: "Merriweather", Georgia, serif;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.uploads {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+button {
+  margin-top: 18px;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.success {
+  margin-top: 14px;
+  color: var(--ok);
+}
+
+.error {
+  margin-top: 14px;
+  color: var(--error);
+}
+
+.meta {
+  margin-top: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+pre {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.85rem;
+}
